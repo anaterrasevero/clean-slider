@@ -1,0 +1,53 @@
+<div class="slider-container">
+  <a href="#">
+    <img id="slider-img-0" class="slider-img" src="./cat1.jpg" alt="first image" />
+  </a>
+  
+  <a href="#">
+    <img id="slider-img-1" class="slider-img" src="./cat2.jpg" alt="second image" />
+  </a>
+
+  <!-- Add new images here with the next image id. Ex.: 'slider-img-2' -->
+  <!-- Include the image link in href and the image url in src -->
+  <!-- Then, add the image in javascript below -->
+</div>
+
+<style type="text/css">
+  .slider-container {
+    width:280px;
+    height: 280px;
+  }
+
+  .slider-img {
+    width:280px;
+    height:280px;
+    display: none;
+  }
+
+</style>
+
+<script type="text/javascript">
+  var images = [];
+  images.push (document.getElementById('slider-img-0'));
+  images.push (document.getElementById('slider-img-1'));
+  //In case of adding another image, push the image id here
+  
+  images[0].style.display="block";
+
+  var currentImage = 1;
+  setInterval (function(){
+
+    for (var i =0; i<images.length; i++) {
+      images[i].style.display="none";
+    }
+    images[currentImage].style.display="block";
+    
+    currentImage++;
+
+    if (currentImage>=images.length){
+      currentImage = 0;
+    }
+
+  }, 1000); // Change the image change interval here
+
+</script>
